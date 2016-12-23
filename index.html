@@ -1,56 +1,55 @@
 <script src ="/socket.io/socket.io.js"></script>
 <script type="text/javascript">
-	var recorde = 0;
-	var socket = io();
-	socket.on("dadosArduino", function(dado){
-		console.log(dado.valor);
-		document.getElementById("pontos").innerHTML = "Pontos: " + dado.valor;
-		var pontos = Number(dado.valor);
-		if(pontos > recorde){ recorde = pontos;	}	
-		document.getElementById("recorde").innerHTML = "Recorde: " + recorde;
-	});
+   var recorde = 0;
+   var socket = io();
+   socket.on("dadosArduino", function(dado){
+   	document.getElementById("pontos").innerHTML = "Pontos: " + dado.valor;
+   	var pontos = Number(dado.valor);
+   	if(pontos > recorde){ recorde = pontos;	}	
+   	document.getElementById("recorde").innerHTML = "Recorde: " + recorde;
+   });
 </script> 
-	
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Utilizando com NODE</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style type="text/css">
-  	
-footer{
-	  position: absolute; 
-	  bottom: 0px;
-	  width: 100%;
-	  height: 50px;
-	  padding-bottom: 2cm;
-	  padding-left: 0.3cm;
-}
-  </style>
-</head>
-<body>
-<center>
-<h1 style="font-size: 60px;">STOP IT GAME</h1>
-<h1 id="pontos"></h1>
-<h1 id="recorde"; style="font-size: 50px;"></h1> <br> <br>
-<!--<p>Aperte o botão somente quando  o led vermelho estiver  aceso</p>
-      <img src="https://raw.githubusercontent.com/antoanne/ArduinoGameStop/master/Projeto.png"> -->
-</center>
-<footer>
-  <div class="media">
-    <div class="media-left">
-      <img src="http://imgur.com/EMz4Q8e.png" class="media-object" style="width:60px">
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">NAVE LABS</h4>
-      <p>Pesquisa e disseminação de robótica <br>
-      		Desenvolvido por Lucas Soares
-      </p>
-    </div>
-  </div></footer>
-</body>
+   <head>
+      <meta charset="utf-8">
+      <title>Utilizando com NODE</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style type="text/css">
+         footer{
+         position: absolute; 
+         bottom: 0px;
+         width: 100%;
+         height: 50px;
+         padding-bottom: 2cm;
+         padding-left: 0.3cm;
+         }
+      </style>
+   </head>
+   <body>
+      <center>
+         <h1 style="font-size: 60px;">STOP IT GAME</h1>
+         <h1 id="pontos"></h1>
+         <h1 id="recorde"; style="font-size: 50px;"></h1>
+         <br> <br>
+         <!--<p>Aperte o botão somente quando  o led vermelho estiver  aceso</p>
+            <img src="https://raw.githubusercontent.com/antoanne/ArduinoGameStop/master/Projeto.png"> -->
+      </center>
+      <footer>
+         <div class="media">
+            <div class="media-left">
+               <img src="http://imgur.com/EMz4Q8e.png" class="media-object" style="width:60px">
+            </div>
+            <div class="media-body">
+               <h4 class="media-heading">NAVE LABS</h4>
+               <p>Pesquisa e disseminação de robótica <br>
+                  Desenvolvido por Lucas Soares
+               </p>
+            </div>
+         </div>
+      </footer>
+   </body>
 </html>

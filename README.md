@@ -1,5 +1,6 @@
 # ArduinoPage
-Página feita em HTML e servidor feito em NODEJS, para exibir informações dados pelo Arduino, totalmente em tempo real, utilizando o servidor node + pacotes express e socketio
+Página feita em HTML e servidor feito em NODEJS, para exibir informações dados pelo Arduino, totalmente em tempo real, utilizando o servidor node + pacotes express e socketio.
+Ná página html, foi utlizado framework bootstrap para personalização das tags
 
 <h2> Como usar </h2>
 Primeiro, você precisa ter NodeJS em seu computador.

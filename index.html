@@ -1,19 +1,26 @@
 <script src ="/socket.io/socket.io.js"></script>
 <script type="text/javascript">
+   var pontos = 0;
    var recorde = 0;
    var socket = io();
    socket.on("dadosArduino", function(dado){
-   	document.getElementById("pontos").innerHTML = "Pontos: " + dado.valor;
-   	var pontos = Number(dado.valor);
-   	if(pontos > recorde){ recorde = pontos;	}	
-   	document.getElementById("recorde").innerHTML = "Recorde: " + recorde;
+      var dados = Number(dado.valor);
+      if(dados != 0){pontos = dados;}
+      document.getElementById("pontos").innerHTML = "POINTS: " + pontos;
+      if(pontos > recorde && dados == 0)
+         {recorde = pontos;}
+               document.getElementById("recorde").innerHTML = "HIGHSCORE: " + recorde; 
+      if(dados == 0)
+         {document.getElementById("gameover").innerHTML = "GAME OVER";}
+      else
+         {document.getElementById("gameover").innerHTML = "";}
    });
 </script> 
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="utf-8">
-      <title>Utilizando com NODE</title>
+      <title>StopIt Game</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -31,10 +38,12 @@
    </head>
    <body>
       <center>
-         <h1 style="font-size: 60px;">STOP IT GAME</h1>
+         <h1 style="font-size: 100px; padding-bottom: 20px">STOP IT GAME</h1>
          <h1 id="pontos"></h1>
          <h1 id="recorde"; style="font-size: 50px;"></h1>
-         <br> <br>
+<strong>
+         <h2 id="gameover"; style="color: red; vertical-align: center; font-size: 150px; padding-top: 10px"></h2>
+</strong>
          <!--<p>Aperte o botão somente quando  o led vermelho estiver  aceso</p>
             <img src="https://raw.githubusercontent.com/antoanne/ArduinoGameStop/master/Projeto.png"> -->
       </center>

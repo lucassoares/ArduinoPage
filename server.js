@@ -2,12 +2,11 @@ require('colors');
 var app = require("express")();
 var express = require("express");
 
-app.use(express.static(__dirname + '/public'));
-
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
+
 app.get("/", function(req, res){
-	res.sendfile("index.html");
+	res.sendFile("index.html", {root: __dirname});
 });
 
 var SerialPort = require("serialport");

@@ -1,5 +1,32 @@
-<script src ="/socket.io/socket.io.js"></script>
-<script type="text/javascript">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous">	  	
+</script>
+
+	  <script type="text/javascript">
+
+	  	$(document).ready(function() {
+	  		var playerName;
+	  		playerName = $('#playerName').val();
+	  		$('#viewPlayerName').html(playerName);
+
+	  		$('#userInput').hide();
+
+	  		$('#savePlayerName').click(function(){
+	  			playerName = $('#playerName').val();
+	  			$('#userInput').hide();
+	  			console.log(playerName);
+	  			$('#viewPlayerName').html(playerName);
+	  		});
+
+	  		$('#showPlayerName').click(function() {
+	  			$('#userInput').show();
+	  		});
+	  	});
+	  </script>
+<!--<script src ="/socket.io/socket.io.js"></script>
+ <script type="text/javascript">
    var pontos = 0;
    var recorde = 0;
    var socket = io();
@@ -15,50 +42,83 @@
       else
          {document.getElementById("gameover").innerHTML = "";}
    });
-</script> 
+</script> --> 
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="utf-8">
-      <title>StopIt Game</title>
+      <meta name="description" content="Placar para o game StopIt">
+      <meta name="author" content="Lucas Soares">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>StopIt Game</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <style type="text/css">
-         footer{
-         position: absolute; 
-         bottom: 0px;
-         width: 100%;
-         height: 50px;
-         padding-bottom: 2cm;
-         padding-left: 0.3cm;
-         }
+      	*{
+      		padding: 0px;
+      		margin: 0px;
+      		font-family: 'Roboto Condensed', sans-serif;
+      		cursor: default;
+      	}
+      	#imgLogo{
+      		width: 450px;
+      	}
+      	#titulo{
+      		margin-top: 15px;
+      		background-color: #232323;
+      		padding: 10px;
+      	}
+      	#viewPlayerName{
+      		font-size: 60px;
+      	}
       </style>
    </head>
    <body>
-      <center>
-         <h1 style="font-size: 100px; padding-bottom: 20px">STOP IT GAME</h1>
-         <h1 id="pontos"></h1>
-         <h1 id="recorde"; style="font-size: 50px;"></h1>
-<strong>
-         <h2 id="gameover"; style="color: red; vertical-align: center; font-size: 150px; padding-top: 10px"></h2>
-</strong>
-         <!--<p>Aperte o botão somente quando  o led vermelho estiver  aceso</p>
-            <img src="https://raw.githubusercontent.com/antoanne/ArduinoGameStop/master/Projeto.png"> -->
-      </center>
-      <footer>
-         <div class="media">
-            <div class="media-left">
-               <img src="http://imgur.com/EMz4Q8e.png" class="media-object" style="width:60px">
-            </div>
-            <div class="media-body">
-               <h4 class="media-heading">NAVE LABS</h4>
-               <p>Pesquisa e disseminação de robótica <br>
-                  Desenvolvido por Lucas Soares
-               </p>
-            </div>
-         </div>
-      </footer>
+   <div class="container">
+	   	<div class="row">
+	   		<div class="col-sm-12">
+	   			<center><img id="imgLogo" src="images/StopIt2.png" class="img-responsive"></center>
+	   		</div>
+	   	</div>
+	   	<div class="row">
+	   		<div id="titulo" class="col-sm-12"></div>
+	   	</div>
+	   	<div id="userInput" class="row" style="margin-top: 10px">
+		   	<div class="col-sm-4"></div>
+		   		<div class="col-sm-4">
+		   			<div class="input-group">
+						<input type="text" maxlength="20" class="form-control" id="playerName" placeholder="Digite o nome do jogador" value="Jogador">
+						<span class="input-group-btn">
+							<button id="savePlayerName" class="btn btn-default" type="button">Salvar</button>
+						</span>
+					</div>
+		   		</div>
+		   	<div class="col-sm-4"></div>
+	   	</div>
+	   	<div class="row">
+	   		<div class="col-sm-4"></div>
+	   		<div class="col-sm-4">
+	   			<center><h1 id="viewPlayerName"></h1> <h1 style=" margin-bottom: 120px; font-size: 50px">0</h1></center>
+	   		</div>
+	   		<div class="col-sm-4">
+	   			<button id="showPlayerName" style="float: right; border: none;" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></button>
+	   		</div>
+	   	</div>
+	   	<div class="row">
+	   		<div class="col-sm-12">
+	   			<center>
+	   				<h1 style="font-weight: 700; font-size: 80px">HIGH SCORE</h1>
+	   				<h1 style="margin-top: -10px; font-size: 50px">
+	   					<span id="highscoreName"></span>
+	   					<span id="highscorePoints"></span>
+	   				</h1>
+	   			</center>
+	   		</div>
+	   	</div>    
+   	</div>
    </body>
 </html>

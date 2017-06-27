@@ -18,6 +18,7 @@ serialport.on("open", function(){
 
 serialport.on("error",function(){
 	console.log("Porta serial com erro ou arduino não conectado".red);
+	// chamar socketio para mandar msg para o html
 });
 
 serialport.on("data", function(data){

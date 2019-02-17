@@ -24,19 +24,11 @@ sudo apt-get install nodejs
 - Express
 - SocketIO
 
-Vamos instalar utilizando a biblioteca NPM 
 - Instalando com cmd
 
 ```
-npm install serialport
+npm i
 ```
-```
-npm install express
-```
-```
-npm install socketio
-```
-
 <h2> Utilizando </h2>
 
 Inicie seu CMD e vá para a pasta do projeto, com o diretório no cmd execute (com a placa arduino conectada no pc)

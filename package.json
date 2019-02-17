@@ -1,0 +1,32 @@
+{
+  "name": "Placar-StopIt",
+  "version": "1.0.0",
+  "description": "Página feita em HTML e servidor feito em NODEJS, para exibir informações dados pelo Arduino, totalmente em tempo real, utilizando o servidor node + pacotes express e socketio. Ná página html, foi utlizado framework bootstrap para personalização das tags",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "serialport": "^7.1.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucassoares/Placar-StopIt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucassoares/Placar-StopIt/issues"
+  },
+  "homepage": "https://github.com/lucassoares/Placar-StopIt#readme"
+}

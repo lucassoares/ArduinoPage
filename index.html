@@ -5,13 +5,13 @@
 </script>
 <script src ="/socket.io/socket.io.js"></script>
 	  <script type="text/javascript">
-	   var playerName;
-	   var pontos = 0;
-	   var recorde = 0;
-	   var socket = io();
+	   let playerName;
+	   let pontos = 0;
+	   let recorde = 0;
+	   let socket = io();
 	  
 	   socket.on("dadosArduino",function(dado){
-	   		var dados = Number(dado.valor);
+	   		let dados = Number(dado.valor);
 	   		if(dados != 0){pontos = dados;}
 	   		$('#viewPlayerPoints').html(pontos);
 	   		if(pontos > recorde && dados == 0){
@@ -25,11 +25,9 @@
 	   			$('#gameover').show();
 	   			$('#viewPlayerPoints').html('0');
 	   		}
-	   		else{
+	   		else
 	   			$('#gameover').hide();	
-	   		}
-	   		
-	   });
+	   	});
 
 	  	$(document).ready(function() {
 	  		playerName = $('#playerName').val();

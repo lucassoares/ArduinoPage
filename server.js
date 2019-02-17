@@ -1,38 +1,39 @@
-require('colors');
-var app = require("express")();
-var express = require("express");
+const express = require('express')();
+const SerialPort = require('serialport');
+const serialport = new SerialPort('COM7');
+const bodyParser = require('body-parser');
+const http = require('http').Server(express);
+const io = require('socket.io')(http);
 
-var http = require("http").Server(app);
-var io = require("socket.io")(http);
+app.use(bodyParser);
 
-app.get("/", function(req, res){
-	res.sendFile("index.html", {root: __dirname});
+app.get('/', (req, res)=>{
+	res.sendFile('index.html', {root: __dirname});
 });
 
-var SerialPort = require("serialport");
-var serialport = new SerialPort("COM7");
-
-serialport.on("open", function(){
-	console.log("Porta Serial esta aberta".green);
+app.post('/cadastrar', async(req, res)=>{
+	console.log(req.body);
+	res.send();
 });
 
-serialport.on("error",function(erro){
-	console.log("Porta serial com erro ou arduino não conectado".red);
-	// chamar socketio para mandar msg para o html
-	//io.emit('error', '404');
+serialport.on('open',()=>{
+	console.log('Porta Serial aberta');
 });
 
-serialport.on("data", function(data){
-	io.emit("dadosArduino",{
+serialport.on('error',(erro)=>{
+	console.log('Porta serial com erro ou arduino não conectado');
+});
+
+serialport.on('data',(data)=>{
+	io.emit('dadosArduino',{
 		 valor : data[0]
 	});
 });
 
-io.on("connection", function(socket){
-	console.log("Um usuario esta conectado".yellow);
+io.on('connection',(socket)=>{
+	console.log('Usuário conectado');
 });
 
-http.listen(3000,function(){
-	console.log("Servidor criado na porta 3000".green);
+http.listen(3000,()=>{
+	console.log('Servidor criado na porta: 3000');
 });
-
